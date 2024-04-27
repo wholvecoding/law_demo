@@ -1,0 +1,31 @@
+html, body, div{
+
+}
+.el-menu {
+    justify-content: space-between;
+    flex: 1;/*占据剩余的空间*/
+    display: flex;
+    flex-wrap: nowrap; /* 默认不换行 */
+    /*justify-content: start; /* 靠左排列 */
+    align-items: center; /* 垂直居中 */
+    overflow-x: auto; /* 超出宽度时允许横向滚动 */
+    white-space: nowrap; /* 防止菜单项文字换行 */
+    mode:horizontal;
+    background-color: beige;
+
+}
+.el-menu-item {
+    flex: 0 0 auto; /* 不允许菜单项伸展，但可以缩小到内容大小 */
+
+    padding: 0vw 0vw; /* 根据实际情况调整，为菜单项添加一些内边距 */
+}
+.el-tab-pane{
+    font-size: larger;
+
+}
+.el-tabs{
+    padding-left: 2vw;
+}
+
+
+
