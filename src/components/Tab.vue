@@ -3,11 +3,19 @@ import {defineComponent} from 'vue'
 
 export default defineComponent({
   name: "Tab",
+  data () {
+    return {
+      // user:
+      //     localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")):{ }
+    }
+  },
   methods: {
-   backToLogin() {
+   logout() {
      console.log('Logout clicked'); // 确保这个方法被调用
      if(this.$route.path !=='/login'){
+       localStorage.removeItem("user");
        this.$router.push('/login'); // 跳转
+       this.$message.success("退出成功");
      }
     }
   }
@@ -36,12 +44,15 @@ export default defineComponent({
   <span class="el-dropdown-link" >
       <div class="demo-type">
         <el-avatar src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"  ></el-avatar>
+        <span>
+          管理员
+        </span>
     </div>
     <i ></i>
   </span>
       <el-dropdown-menu v-slot="dropdown" >
         <el-dropdown-item divided>个人信息</el-dropdown-item>
-        <el-dropdown-item divided  @click.native = "backToLogin">退出登录</el-dropdown-item>
+        <el-dropdown-item divided  @click.native = "logout">退出登录</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
   </el-menu>

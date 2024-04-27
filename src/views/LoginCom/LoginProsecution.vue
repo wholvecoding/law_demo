@@ -22,14 +22,15 @@ export default defineComponent({
     login(){//用户前端接口验证登录
 
           this.request.post("/user/login",this.user).then( res => {
-            // console.log("res", res);
-            // console.log("user",this.user);
-            if(!res){
-              this.$message.error("用户名或密码错误");
+            if(res.code=='200'){
+              localStorage.setItem("user",JSON.stringify(res.data));//将用户信息存储到浏览器里面
+              this.$message.success("登录成功");
+              this.$router.push("/");
+
             }
             else{
-              console.log("登录cg");
-              this.$router.push("/");
+             // console.log("登录cg");
+              this.$message.error(res.msg);
             }
           }).catch(error => {
             console.error("请求失败：", error);
