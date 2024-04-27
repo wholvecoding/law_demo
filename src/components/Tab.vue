@@ -5,8 +5,8 @@ export default defineComponent({
   name: "Tab",
   data () {
     return {
-      // user:
-      //     localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")):{ }
+      user:
+          localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")):{ }
     }
   },
   methods: {
@@ -43,9 +43,9 @@ export default defineComponent({
     <el-dropdown trigger="click" >
   <span class="el-dropdown-link" >
       <div class="demo-type">
-        <el-avatar src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"  ></el-avatar>
+        <el-avatar :src="user.userAvatar"  ></el-avatar>
         <span>
-          管理员
+          {{user.userNickname}}
         </span>
     </div>
     <i ></i>

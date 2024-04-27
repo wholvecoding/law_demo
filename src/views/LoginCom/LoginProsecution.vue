@@ -22,7 +22,15 @@ export default defineComponent({
     login(){//用户前端接口验证登录
 
           this.request.post("/user/login",this.user).then( res => {
+          //   if(!res){
+          //     this.$message.error("cuow");
+          //   }
+          //   else{
+          //     this.$router.push("/");
+          //   }
+          // })
             if(res.code=='200'){
+              console.log("USR",this.user);
               localStorage.setItem("user",JSON.stringify(res.data));//将用户信息存储到浏览器里面
               this.$message.success("登录成功");
               this.$router.push("/");
